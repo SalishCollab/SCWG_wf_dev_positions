@@ -1,0 +1,120 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+```{r}
+
+```
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+install.packages(sf)
+install.packages("ggplot2")
+install.packages(rnaturalearth)
+install.packages(rnaturalearthdata)
+
+
+library(sf)
+library(ggplot2)
+library(rnaturalearth)
+library(rnaturalearthdata)
+
+wa <- ne_states(country = "United States of America", returnclass = "sf") |>
+  dplyr::filter(name == "Washington")
+
+ggplot(wa) +
+  geom_sf(fill = "grey95", color = "grey40") +
+  coord_sf() +
+  theme_minimal()
+
+
+
+
+
+```
+
+
+```{r}
+library(ggspatial)
+
+ggplot() +
+  annotation_map_tile(type = "osm", zoom = 7) +
+  geom_sf(data = hatcheries_sf,
+          aes(color = OwnerClass),
+          inherit.aes = FALSE) +
+  coord_sf(xlim = c(-125, -116),
+           ylim = c(45.5, 49.1),
+           expand = FALSE)
+
+```
+
+
+
+
+```{r}
+#hello next section
+```
+
+
+```{r}
+#hello next section
+```
+
+
+
+
+```{r}
+#hello next section
+```
+
+
+
+```{r}
+#hello next section
+```
+
+
+
+```{r}
+#hello next section
+```
+
+
+
+
+```{r}
+#hello next section
+```
+
+
+
+
+
+```{r}
+#hello next section
+```
+
+
+
+
+```{r}
+#hello next section
+```
+
+
+
+
+
+
+
+
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
